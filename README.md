@@ -6,7 +6,7 @@ A sophisticated manual Wordle solver that uses advanced AI algorithms inspired b
 
 ## Features
 
-### 🎯 Interactive Manual Solving
+### Interactive Manual Solving
 - **Letter Input**: Type your guesses in 5 letter inputs
 - **Color Highlighting**: Click tiles to cycle through gray/yellow/green
 - **Real-time Feedback**: Visual color-coded feedback system
@@ -19,7 +19,7 @@ A sophisticated manual Wordle solver that uses advanced AI algorithms inspired b
 - **Optimal Openings**: Uses SALET (3.42 avg) as proven best starting word
 - **Smart Filtering**: Dynamically narrows down word list based on feedback
 
-### 📊 Performance Metrics
+### Performance Metrics
 - **Expected Performance**: 3.42 average guesses (using SALET opening)
 - **Success Rate**: 100% on all words
 - **Real-time Stats**: Live word count, confidence levels, expected average
