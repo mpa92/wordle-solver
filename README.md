@@ -1,5 +1,7 @@
 # Manual Wordle Solver - Advanced AI Algorithm
 
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Try_Now-brightgreen?style=for-the-badge)](https://clinquant-centaur-f00c95.netlify.app)
+
 A sophisticated manual Wordle solver that uses advanced AI algorithms inspired by [ybenhayun's wordlebot](https://github.com/ybenhayun/wordlebot). Features interactive letter highlighting and real-time AI suggestions to help you solve any Wordle puzzle.
 
 ## Features
