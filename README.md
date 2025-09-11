@@ -94,7 +94,7 @@ After each guess, the solver:
 3. **Pay attention to confidence levels** - higher is better
 4. **Watch the word count** - fewer remaining words = higher confidence
 
-## 🔧 Technical Details
+## Technical Details
 
 ### Algorithm Complexity
 - **Time Complexity**: O(n²) for word scoring
