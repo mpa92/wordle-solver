@@ -1,4 +1,8 @@
-# 🧠 Manual Wordle Solver - Advanced AI Algorithm
+# 🧠 Advanced Wordle Solver
+
+An intelligent Wordle solving assistant that uses advanced bucket analysis algorithms to provide optimal word suggestions. Perfect for improving your Wordle game strategy!
+
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Try_Now-brightgreen?style=for-the-badge)](https://clinquant-centaur-f00c95.netlify.app)
 
 A sophisticated manual Wordle solver that uses advanced AI algorithms inspired by [ybenhayun's wordlebot](https://github.com/ybenhayun/wordlebot). Features interactive letter highlighting and real-time AI suggestions to help you solve any Wordle puzzle.
 
@@ -25,26 +29,38 @@ A sophisticated manual Wordle solver that uses advanced AI algorithms inspired b
 
 ## 🚀 Quick Start
 
-1. **Open `manual-wordle-solver.html`** in your browser
-2. **Type your guess** in the 5 letter inputs (start with SALET for best results)
-3. **Click letter tiles** to highlight colors based on Wordle feedback:
+### Option 1: Live Demo (Recommended)
+**[Try it now!](https://clinquant-centaur-f00c95.netlify.app)** - No download required!
+
+### Option 2: Local Setup
+1. **Clone this repository** or download the files
+2. **Open `manual-wordle-solver.html`** in your browser
+3. **Type your guess** in the 5 letter inputs (start with SALET for best results)
+4. **Click letter tiles** to highlight colors based on Wordle feedback:
    - 🟫 **Gray** = Letter not in the word
    - 🟡 **Yellow** = Letter in word but wrong position
    - 🟢 **Green** = Letter in correct position
-4. **Click "Add Guess"** to process the feedback
-5. **Get AI suggestions** for the next best word
-6. **Repeat** until you solve the puzzle!
+5. **Click "Add Guess"** to process the feedback
+6. **Get AI suggestions** for the next best word
+7. **Repeat** until you solve the puzzle!
 
 ## 📁 File Structure
 
 ```
 Wordle Program/
 ├── manual-wordle-solver.html  # Main manual solver interface
+├── index.html                 # Copy for GitHub Pages deployment
 ├── wordlist.js               # Comprehensive word database (5,757 words)
 ├── styles.css                # Styling and UI components
 ├── sgb-words.txt            # Source word list (5,757 words)
 └── README.md                # This file
 ```
+
+## 🌐 Deployment
+
+- **Live Demo**: [https://clinquant-centaur-f00c95.netlify.app](https://clinquant-centaur-f00c95.netlify.app)
+- **GitHub Pages**: Available after enabling Pages in repository settings
+- **Netlify**: Auto-deployed from GitHub repository
 
 ## 🧠 How It Works
 
