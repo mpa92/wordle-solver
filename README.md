@@ -1,8 +1,8 @@
-# 🧠 Manual Wordle Solver - Advanced AI Algorithm
+# Manual Wordle Solver - Advanced AI Algorithm
 
 A sophisticated manual Wordle solver that uses advanced AI algorithms inspired by [ybenhayun's wordlebot](https://github.com/ybenhayun/wordlebot). Features interactive letter highlighting and real-time AI suggestions to help you solve any Wordle puzzle.
 
-## ✨ Features
+## Features
 
 ### 🎯 Interactive Manual Solving
 - **Letter Input**: Type your guesses in 5 letter inputs
@@ -10,7 +10,7 @@ A sophisticated manual Wordle solver that uses advanced AI algorithms inspired b
 - **Real-time Feedback**: Visual color-coded feedback system
 - **One-click Suggestions**: Click AI suggestions to auto-fill your next guess
 
-### 🧠 Advanced AI Algorithm
+### Advanced AI Algorithm
 - **Bucket Analysis**: Groups possible answers by color patterns
 - **Game-Ending Probability**: Calculates likelihood of solving in next guess
 - **Adjusted Scoring**: `(1 - game_ending_prob) × average_bucket_size`
@@ -23,7 +23,7 @@ A sophisticated manual Wordle solver that uses advanced AI algorithms inspired b
 - **Real-time Stats**: Live word count, confidence levels, expected average
 - **Guess History**: Visual history of all your guesses with color coding
 
-## 🚀 Quick Start
+## Quick Start
 
 1. **Open `manual-wordle-solver.html`** in your browser
 2. **Type your guess** in the 5 letter inputs (start with SALET for best results)
@@ -35,7 +35,7 @@ A sophisticated manual Wordle solver that uses advanced AI algorithms inspired b
 5. **Get AI suggestions** for the next best word
 6. **Repeat** until you solve the puzzle!
 
-## 📁 File Structure
+## File Structure
 
 ```
 Wordle Program/
@@ -46,7 +46,7 @@ Wordle Program/
 └── README.md                # This file
 ```
 
-## 🧠 How It Works
+## How It Works
 
 ### 1. Advanced Bucket Analysis Algorithm
 Inspired by [ybenhayun's wordlebot](https://github.com/ybenhayun/wordlebot), our solver uses:
@@ -69,7 +69,7 @@ After each guess, the solver:
 - **AI Suggestions**: Get the best next word based on advanced algorithms
 - **Performance Tracking**: See your progress with live statistics
 
-## 🎯 Performance
+## Performance
 
 - **Word Processing**: 1,000 words scored in <100ms
 - **Success Rate**: 100% on all words (inspired by ybenhayun's research)
@@ -77,7 +77,7 @@ After each guess, the solver:
 - **Algorithm**: Advanced bucket analysis with recursive mapping
 - **Real-time**: Instant suggestions and filtering
 
-## 🎮 Usage Tips
+## Usage Tips
 
 ### Best Starting Words
 1. **SALET** - Best overall (3.42 average)
@@ -104,7 +104,7 @@ After each guess, the solver:
 - **Processing**: Optimized for fast lookup and filtering
 - **Validation**: All words verified against official Wordle dictionary
 
-## 📈 Expected Results
+## Expected Results
 
 Using the advanced algorithm with optimal opening words:
 - **Easy Words**: 2-3 guesses average
@@ -113,7 +113,7 @@ Using the advanced algorithm with optimal opening words:
 - **Overall Average**: 3.42 guesses per game
 - **Success Rate**: 100% on all words
 
-## 🎉 Why This Solver?
+## Why This Solver?
 
 - **Educational**: Learn how advanced Wordle algorithms work
 - **Interactive**: Full control over the solving process
