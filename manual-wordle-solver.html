@@ -521,7 +521,8 @@
                 this.knownLetters = {
                     correct: new Array(5).fill(null),
                     present: new Set(),
-                    absent: new Set()
+                    absent: new Set(),
+                    excludedPositions: new Map() // Track which positions each letter cannot be in
                 };
                 this.initializeEventListeners();
                 this.updateDisplay();
@@ -663,6 +664,11 @@
                         this.knownLetters.present.add(letter);
                     } else if (color === 'Y') {
                         this.knownLetters.present.add(letter);
+                        // Track that this letter cannot be in this position
+                        if (!this.knownLetters.excludedPositions.has(letter)) {
+                            this.knownLetters.excludedPositions.set(letter, new Set());
+                        }
+                        this.knownLetters.excludedPositions.get(letter).add(i);
                     } else if (color === 'B') {
                         this.knownLetters.absent.add(letter);
                     }
@@ -692,6 +698,15 @@
                 for (const letter of this.knownLetters.absent) {
                     if (word.includes(letter)) {
                         return false;
+                    }
+                }
+
+                // Check excluded positions for yellow letters
+                for (const [letter, excludedPositions] of this.knownLetters.excludedPositions) {
+                    for (const position of excludedPositions) {
+                        if (word[position] === letter) {
+                            return false;
+                        }
                     }
                 }
 
@@ -827,17 +842,34 @@
                 
                 // Prefer words that are more likely to be the answer
                 let answerBonus = 0;
-                if (WORDLE_WORDS.includes(word)) {
-                    answerBonus = 50;
+                if (this.remainingWords.includes(word)) {
+                    answerBonus = 100; // Increased bonus for remaining words
                 }
                 
                 // Prefer words with unique letters
                 const uniqueLetters = new Set(word).size;
-                const uniquenessBonus = uniqueLetters * 10;
+                const uniquenessBonus = uniqueLetters * 15; // Increased bonus
+                
+                // Bonus for words that test new letters not yet tried
+                let newLetterBonus = 0;
+                const triedLetters = new Set();
+                this.guesses.forEach(guess => {
+                    guess.word.split('').forEach(letter => triedLetters.add(letter));
+                });
+                const newLetters = word.split('').filter(letter => !triedLetters.has(letter));
+                newLetterBonus = newLetters.length * 20;
+                
+                // Penalty for repeating letters in the same word
+                const letterCounts = {};
+                word.split('').forEach(letter => {
+                    letterCounts[letter] = (letterCounts[letter] || 0) + 1;
+                });
+                const repeatedLetters = Object.values(letterCounts).filter(count => count > 1).length;
+                const repetitionPenalty = repeatedLetters * 10;
                 
                 // Final score
                 const eliminationScore = 1000 - adjustedScore;
-                return eliminationScore + answerBonus + uniquenessBonus;
+                return eliminationScore + answerBonus + uniquenessBonus + newLetterBonus - repetitionPenalty;
             }
 
             createBuckets(word) {
@@ -949,7 +981,8 @@
                 this.knownLetters = {
                     correct: new Array(5).fill(null),
                     present: new Set(),
-                    absent: new Set()
+                    absent: new Set(),
+                    excludedPositions: new Map()
                 };
                 
                 // Clear inputs
