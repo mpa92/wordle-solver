@@ -655,6 +655,7 @@
             }
 
             updateKnownLetters(word, feedback) {
+                console.log(`Updating known letters for word: ${word}, feedback: ${feedback.join('')}`);
                 for (let i = 0; i < 5; i++) {
                     const letter = word[i];
                     const color = feedback[i];
@@ -662,6 +663,7 @@
                     if (color === 'G') {
                         this.knownLetters.correct[i] = letter;
                         this.knownLetters.present.add(letter);
+                        console.log(`Green: ${letter} in position ${i}`);
                     } else if (color === 'Y') {
                         this.knownLetters.present.add(letter);
                         // Track that this letter cannot be in this position
@@ -669,14 +671,21 @@
                             this.knownLetters.excludedPositions.set(letter, new Set());
                         }
                         this.knownLetters.excludedPositions.get(letter).add(i);
+                        console.log(`Yellow: ${letter} cannot be in position ${i}`);
                     } else if (color === 'B') {
                         this.knownLetters.absent.add(letter);
+                        console.log(`Black: ${letter} not in word`);
                     }
                 }
+                console.log('Excluded positions:', this.knownLetters.excludedPositions);
             }
 
             filterWords() {
+                const beforeCount = this.remainingWords.length;
                 this.remainingWords = this.remainingWords.filter(word => this.isValidWord(word));
+                const afterCount = this.remainingWords.length;
+                console.log(`Filtered words: ${beforeCount} -> ${afterCount}`);
+                console.log('Remaining words after filtering:', this.remainingWords.slice(0, 10));
             }
 
             isValidWord(word) {
@@ -705,6 +714,7 @@
                 for (const [letter, excludedPositions] of this.knownLetters.excludedPositions) {
                     for (const position of excludedPositions) {
                         if (word[position] === letter) {
+                            console.log(`Rejecting ${word}: letter ${letter} cannot be in position ${position}`);
                             return false;
                         }
                     }
@@ -754,6 +764,8 @@
                         reason: reason
                     };
                 });
+
+                console.log('Top suggestions:', suggestionsWithReason.slice(0, 5));
 
                 // Display suggestions
                 this.displaySuggestions(suggestionsWithReason);
